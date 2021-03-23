@@ -12,9 +12,9 @@ properties:
     description: The URI of the Payment Link details
   redirect:
     type: object
+    description: The link to visit the Payment Link page
     allOf:
       - $ref: "#/components/schemas/Link"
-    description: The link to visit the Payment Link
 example:
   self:
     href: "https://api.sandbox.checkout.com/payment-links/pl_ELqQJXdXzabU"

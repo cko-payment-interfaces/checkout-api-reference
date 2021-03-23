@@ -24,3 +24,9 @@ allOf:
                   - $ref: "#/components/schemas/Link"
                 description: The URI of the payment for this Payment Link
                 example: https://api.sandbox.checkout.com/payments/pay_mbabizu24mvu3mela5njyhpit4
+              payment_actions:
+                type: object
+                allOf:
+                  - $ref: "#/components/schemas/Link"
+                description: The URI of the actions associated with the payment for this Payment Link
+                example: https://api.sandbox.checkout.com/payments/pay_mbabizu24mvu3mela5njyhpit4/actions

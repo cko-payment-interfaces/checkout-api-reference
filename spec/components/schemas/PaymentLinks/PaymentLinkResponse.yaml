@@ -19,7 +19,6 @@ required:
 
 properties:
   id:
-    description: Unique identifier for Payment Link
     example: pl_ELqQJXdXzabU
     allOf:
       - $ref: "#/components/schemas/PaymentLinkId"
