@@ -1,0 +1,10 @@
+type: object
+description: An expired Payment Link
+allOf:
+  - $ref: "#/components/schemas/PaymentLinkResponse"
+  - $ref: "#/components/schemas/PaymentLinkResponseContextDetails"
+  - type: object
+    properties:
+      _links:
+        allOf:
+          - $ref: "#/components/schemas/PaymentLinkResponseLinks"

@@ -1,0 +1,26 @@
+type: object
+description: A paid Payment Link
+allOf:
+  - $ref: "#/components/schemas/PaymentLinkResponse"
+  - type: object
+    required:
+      - payment_id
+    properties:
+      payment_id:
+        description: Unique identifier for payment for this Payment Link
+        allOf:
+          - $ref: "#/components/schemas/PaymentId"
+  - $ref: "#/components/schemas/PaymentLinkResponseContextDetails"
+  - type: object
+    properties:
+      _links:
+        allOf:
+          - $ref: "#/components/schemas/PaymentLinkResponseLinks"
+          - type: object
+            properties:
+              payment:
+                type: object
+                allOf:
+                  - $ref: "#/components/schemas/Link"
+                description: The URI of the payment for this Payment Link
+                example: https://api.sandbox.checkout.com/payments/pay_mbabizu24mvu3mela5njyhpit4

@@ -1,0 +1,5 @@
+type: string
+pattern: "^(pl)_(\\w{12})$"
+description: The Payment Link identifier
+maxLength: 14
+minLength: 14
