@@ -1,0 +1,40 @@
+name: Deploy
+
+on: push
+
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js 12.16.3
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.16.3"
+
+      - name: Inject slug/short variables
+        uses: rlespinasse/github-slug-action@v3.x
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Test
+        run: npm run test
+
+      - name: Deploy Master
+        if: github.ref == 'refs/heads/master'
+        run: npm run deploy
+        env:
+          GH_TOKEN: ${{ secrets.PAYINT_SERVICE_ACCOUNT_TOKEN }}
+
+      - name: Deploy Branch
+        if: github.ref != 'refs/heads/master'
+        run: npm run deploy-branch
+        env:
+          GH_TOKEN: ${{ secrets.PAYINT_SERVICE_ACCOUNT_TOKEN }}

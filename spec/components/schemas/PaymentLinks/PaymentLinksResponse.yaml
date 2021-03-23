@@ -3,14 +3,14 @@ required:
   - _links
 properties:
   id:
-    type: string
-    description: The request id
-    example: 'cid_7fbeb87f-322d-4a02-9758-2ca48ae65696'
+    example: pl_ELqQJXdXzabU
+    allOf:
+      - $ref: "#/components/schemas/PaymentLinkId"
   expires_on:
     type: string
     description: The date and time when the payment link expires
-    format: 'ISO 8601 date and time'
-    example: '2020-08-20T20:25:28+08:00'
+    format: "ISO 8601 date and time"
+    example: "2020-08-20T20:25:28+08:00"
   reference:
     type: string
     description: A reference you can later use to identify this payment, such as an order number
@@ -20,10 +20,13 @@ properties:
     description: The links related to the hosted payment
     readOnly: true
     minItems: 1
+    required:
+      - redirect
     properties:
       redirect:
         type: object
+        description: The link to visit the Payment Link page
         allOf:
-          - $ref: '#/components/schemas/Link'
+          - $ref: "#/components/schemas/Link"
         example:
-          href: 'https://pay.checkout.com/link/ELqQJXdXzabU'
+          href: "https://pay.checkout.com/link/ELqQJXdXzabU"

@@ -1,0 +1,29 @@
+type: object
+description: Payment Link response
+
+discriminator:
+  propertyName: status
+  mapping:
+    ACTIVE: "#/components/schemas/PaymentLinkResponseActive"
+    PAID: "#/components/schemas/PaymentLinkResponsePaid"
+    EXPIRED: "#/components/schemas/PaymentLinkResponseExpired"
+
+required:
+  - id
+  - status
+  - amount
+  - currency
+  - expires_on
+  - billing
+  - _links
+
+properties:
+  id:
+    example: pl_ELqQJXdXzabU
+    allOf:
+      - $ref: "#/components/schemas/PaymentLinkId"
+  status:
+    type: string
+    enum: [ACTIVE, PAID, EXPIRED]
+    description: The status of the Payment Link.
+    example: ACTIVE
