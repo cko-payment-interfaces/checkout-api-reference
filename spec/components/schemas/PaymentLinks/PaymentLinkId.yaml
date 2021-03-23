@@ -1,5 +1,5 @@
 type: string
 pattern: "^(pl)_(\\w{12})$"
 description: The unique identifier for a Payment Link
-maxLength: 14
-minLength: 14
+maxLength: 15
+minLength: 15
