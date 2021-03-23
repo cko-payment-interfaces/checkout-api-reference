@@ -31,10 +31,10 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: npm run deploy
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAYINT_SERVICE_ACCOUNT_TOKEN }}
 
       - name: Deploy Branch
         if: github.ref != 'refs/heads/master'
         run: npm run deploy-branch
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAYINT_SERVICE_ACCOUNT_TOKEN }}
