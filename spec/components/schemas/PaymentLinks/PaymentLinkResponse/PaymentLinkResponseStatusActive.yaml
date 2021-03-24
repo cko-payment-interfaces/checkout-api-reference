@@ -1,0 +1,9 @@
+type: object
+description: An active Payment Link
+allOf:
+  - $ref: "#/components/schemas/PaymentLinkResponse"
+  - type: object
+    properties:
+      _links:
+        allOf:
+          - $ref: "#/components/schemas/PaymentLinkResponseLinks"

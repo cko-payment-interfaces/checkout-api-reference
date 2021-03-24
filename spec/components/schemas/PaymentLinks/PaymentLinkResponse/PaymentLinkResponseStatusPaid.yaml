@@ -1,10 +1,14 @@
 type: object
-description: An active Payment Link
+description: A paid Payment Link
+required:
+  - payment_id
 allOf:
   - $ref: "#/components/schemas/PaymentLinkResponse"
-  - $ref: "#/components/schemas/PaymentLinkResponseContextDetails"
   - type: object
     properties:
       _links:
+        required:
+          - payment
+          - payment_actions
         allOf:
           - $ref: "#/components/schemas/PaymentLinkResponseLinks"
