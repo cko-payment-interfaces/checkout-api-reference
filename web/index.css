@@ -433,6 +433,10 @@ span.sc-jlyJG.evvbxn {
 
 /* Parameters */
 
+.Dropdown-root {
+  min-width: 120px !important;
+}
+
 .Dropdown-control {
   border-radius: 0 !important;
 }
