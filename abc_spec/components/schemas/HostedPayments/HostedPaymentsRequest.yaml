@@ -183,7 +183,6 @@ properties:
   capture:
     type: boolean
     description: Whether to capture the payment (if applicable)
-    default: true
     example: true
   capture_on:
     description: |
