@@ -3,7 +3,7 @@ name: Create PR in upstream repo
 on:
   push:
     branches:
-      - 'main'
+      - 'master'
 
 env:
   CI: true
