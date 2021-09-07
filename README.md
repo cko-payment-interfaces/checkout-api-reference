@@ -4,6 +4,16 @@
 
 ---
 
+## Contributing
+
+Clone this fork and make changes as required in a new branch.
+
+When creating the pull request, be sure to set the **base repository** to `cko-payment-interfaces/checkout-api-reference`.
+
+Request a review on the pull request from `cko-payment-interfaces/web-engineers`, and merge it when approved.
+
+When the pull request is merged to `master`, a new pull request with the specification changes will automatically be created in the upstream repository ([checkout/checkout-api-reference](https://github.com/checkout/checkout-api-reference/pulls)).
+
 ## NOTE
 
 Review from the documentation team is now mandatory. You won't be able to merge changes until we have reviewed. Use the list below to see which Technical Writer is a assigned to you. We will approve on the same day. Contact [@Chrisi Webster](https://github.com/chrisi-webster-cko) if your assigned Technical Writer is away or unable to help.
@@ -61,14 +71,14 @@ Review from the documentation team is now mandatory. You won't be able to merge 
 1. Run `npm run start`
 2. Check console output to see where local server is started
 3. Make changes using your favorite editor (or the `swagger-editor` shipped with the project - look for the URL in the console output)
-4. All changes are immediately propagated to your local server, moreover all documentation pages will be automagically refreshed in a browser after each change  
+4. All changes are immediately propagated to your local server, moreover all documentation pages will be automagically refreshed in a browser after each change
    **TIP:** you can open `swagger-editor`, documentation and `swagger-ui` in parallel
 5. Once you finish with the changes you can run tests using: `npm run test`
 
 ### Contribute
 
 1. Your contribution should have a JIRA ticket on the [Documentation Board](https://checkout.atlassian.net/secure/RapidBoard.jspa?rapidView=543&projectKey=DOC)
-2. Name your branch `<type>/<JIRA-issue-key>-<JIRA-issue-title>`  
+2. Name your branch `<type>/<JIRA-issue-key>-<JIRA-issue-title>`
    _for example: "task/DOCS-534-add-oas3-operationid"_
 3. Work, commit, push
 4. Have a break, drink some coffee
