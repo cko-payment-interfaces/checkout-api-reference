@@ -1,18 +1,24 @@
+# checkout-api-reference - Payment Interfaces fork
+
+Before making any changes, make sure that this fork is synced with the upstream repository ([checkout/checkout-api-reference](https://github.com/checkout/checkout-api-reference)).
+
+Make changes to Payment Interfaces components as required.
+
+When creating a pull request, be sure to set the **base repository** to `cko-payment-interfaces/checkout-api-reference`.
+
+Request a review on the PR from `cko-payment-interfaces/web-engineers`, and merge it when approved.
+
+When the pull request is merged to `master`, a new PR with the changes will automatically be created in the [upstream repo](https://github.com/checkout/checkout-api-reference/pulls).
+
+Original README below
+
+---
+
 # Checkout.com API Reference
 
 [![Build Status](https://vercel.com/cko-docs/checkout-api-reference)](https://vercel.com/cko-docs/checkout-api-reference)
 
 ---
-
-## Contributing
-
-Clone this fork and make changes as required in a new branch.
-
-When creating the pull request, be sure to set the **base repository** to `cko-payment-interfaces/checkout-api-reference`.
-
-Request a review on the pull request from `cko-payment-interfaces/web-engineers`, and merge it when approved.
-
-When the pull request is merged to `master`, a new pull request with the specification changes will automatically be created in the upstream repository ([checkout/checkout-api-reference](https://github.com/checkout/checkout-api-reference/pulls)).
 
 ## NOTE
 
