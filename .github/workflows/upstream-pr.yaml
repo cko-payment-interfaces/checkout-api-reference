@@ -24,22 +24,14 @@ jobs:
           repository: cko-payment-interfaces/checkout-api-reference
           ref: ${{ steps.extract_branch.outputs.branch }}
 
-      - name: Delete non-Demo files
+      - name: Copy relevant files
         run: |
-          echo ********** Listing contents of spec/ ************
-          ls spec/*/**
-          echo ********** Created an empty folder ************
-          mkdir newspec
-          echo ********** Copying over what we need into the new folder ************
-          mkdir -p newspec/components/schemas
-          cp -r spec/components/**/Demo newspec/components/schemas
-          mkdir -p newspec/paths
-          cp spec/paths/demo*.* newspec/paths
+          mkdir -p newspec/abc_spec/components/schemas
+          mkdir -p newspec/abc_spec/paths
+          cp -r abc_spec/components/schemas/{HostedPayments,PaymentLinks} newspec/abc_spec/components/schemas
+          cp abc_spec/paths/{hosted-payments*,payment-links*} newspec/abc_spec/paths
           echo ********** Listing contents of newspec/ ************
-          ls spec/*/**
-          echo ********** Creating copies of spec for ABC and NAS ************
-          cp -r newspec/ nas_spec/
-          cp -r newspec/ abc_spec/
+          ls newspec/**/*
           echo ********** Ready to upload specs ************
 
       - uses: actions/upload-artifact@v2
@@ -54,7 +46,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: specification
-          path: src_spec
+          path: newspec
 
       - name: Fetch Checkout Api Reference repository
         uses: actions/checkout@v2
@@ -62,16 +54,16 @@ jobs:
           repository: checkout/checkout-api-reference
           ref: master
           token: ${{ env.PAT }}
-          path: src
+          path: api-reference
 
       - name: Commit Api specification
-        working-directory: src
+        working-directory: api-reference
         run: |
           git config user.email "payint-teamcity-cko@users.noreply.github.com" && git config user.name "payint-teamcity-cko"
           git branch -m "payint/Api-Spec"
-          rsync -a ../src_spec/ abc_spec/
-          rsync -a ../src_spec/ nas_spec/
+          rsync -a ../newspec/abc_spec .
           git add .
+          git status
           git commit -m 'Publish new API Specification'
           git push origin HEAD
 
