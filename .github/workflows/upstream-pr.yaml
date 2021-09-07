@@ -26,18 +26,19 @@ jobs:
 
       - name: Copy relevant files
         run: |
-          mkdir -p newspec/abc_spec/components/schemas
-          mkdir -p newspec/abc_spec/paths
+          echo "*** Creating newspec directory ***"
+          mkdir -p newspec/{abc_spec,nas_spec}/{components/schemas,paths}
+          echo "*** Copying files to newspec ***"
           cp -r abc_spec/components/schemas/{HostedPayments,PaymentLinks} newspec/abc_spec/components/schemas
           cp abc_spec/paths/{hosted-payments*,payment-links*} newspec/abc_spec/paths
-          echo ********** Listing contents of newspec/ ************
+          echo "*** Listing contents of newspec ***"
           ls newspec/**/*
-          echo ********** Ready to upload specs ************
+          echo "*** Ready to upload specs ***"
 
       - uses: actions/upload-artifact@v2
         with:
           name: specification
-          path: newspec/
+          path: newspec
 
   publish-spec:
     runs-on: ubuntu-latest
@@ -60,8 +61,9 @@ jobs:
         working-directory: api-reference
         run: |
           git config user.email "payint-teamcity-cko@users.noreply.github.com" && git config user.name "payint-teamcity-cko"
-          git branch -m "payint/Api-Spec"
+          git checkout -b payint/api-spec
           rsync -a ../newspec/abc_spec .
+          rsync -a ../newspec/nas_spec .
           git add .
           git status
           git commit -m 'Publish new API Specification'
