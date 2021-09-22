@@ -1,0 +1,37 @@
+name: Deploy Open API postman collection
+
+on:
+  pull_request:
+    branches:
+      - master
+    types: [closed]
+
+env:
+  CI: true
+
+jobs:
+  generate-collection:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2.1.5
+        with:
+          node-version: 14.x
+
+      - name: Install node modules
+        run: npm ci --ignore-scripts
+
+      - name: Build ABC & NAS specs
+        run: npm run build:all
+
+      - name: Deploy Open API Postman collection
+        run: npm run postman 
+
+      - name: Commit Postman collection
+        run: |
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com" && git config user.name "$GITHUB_ACTOR"
+          git add .
+          git commit -m 'Add cko_collection_beta.json'
+          git push origin master
