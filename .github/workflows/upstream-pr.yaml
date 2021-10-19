@@ -31,6 +31,8 @@ jobs:
           echo "*** Copying files to newspec ***"
           cp -rv abc_spec/components/schemas/{HostedPayments,PaymentLinks} newspec/abc_spec/components/schemas
           cp -v abc_spec/paths/{hosted-payments*,payment-links*} newspec/abc_spec/paths
+          cp -rv nas_spec/components/schemas/{HostedPayments,PaymentLinks} newspec/nas_spec/components/schemas
+          cp -v nas_spec/paths/{hosted-payments*,payment-links*} newspec/nas_spec/paths
           echo "*** Listing contents of newspec ***"
           ls newspec/**/*
           echo "*** Ready to upload specs ***"
@@ -63,6 +65,7 @@ jobs:
           git config user.email "payint-teamcity-cko@users.noreply.github.com" && git config user.name "payint-teamcity-cko"
           git checkout -b payint/api-spec
           rsync -a ../newspec/abc_spec .
+          rsync -a ../newspec/nas_spec .
           git add .
           git status
           git commit -m 'Publish new API Specification'
