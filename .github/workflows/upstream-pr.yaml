@@ -71,11 +71,11 @@ jobs:
           git commit -m 'Publish new API Specification'
           git push origin HEAD
 
-      - uses: actions/github-script@v4
+      - uses: actions/github-script@v5
         with:
           github-token: ${{ env.PAT }}
           script: |
-            await github.pulls.create({
+            await github.rest.pulls.create({
               owner: 'checkout',
               repo: 'checkout-api-reference',
               head: "payint/Api-Spec",
