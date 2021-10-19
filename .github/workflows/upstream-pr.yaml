@@ -63,7 +63,7 @@ jobs:
         working-directory: api-reference
         run: |
           git config user.email "payint-teamcity-cko@users.noreply.github.com" && git config user.name "payint-teamcity-cko"
-          git checkout -b payint/api-spec
+          git checkout -b payment-interfaces/api-spec
           rsync -a ../newspec/abc_spec .
           rsync -a ../newspec/nas_spec .
           git add .
