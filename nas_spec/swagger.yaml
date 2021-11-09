@@ -23,6 +23,15 @@ info:
 
     We have a testing environment called sandbox, which you can <a href="https://www.checkout.com/get-test-account">sign up for</a> to test API calls without affecting live data.
 
+    ### Base URLs
+
+    Use the following base URLs when making requests to the APIs:
+
+      | Environment   |      Base URL                                        |
+      |---------------|------------------------------------------------------|
+      | Sandbox       |  https://access.sandbox.checkout.com/                |
+      | Production    |  https://access.checkout.com/                        |
+
     # Authentication
 
     When you sign up for an account, you are given a public key, and either a set of client credentials or a secret key. You authenticate with our API by following the appropriate authentication flow, using either your API keys or your client credentials.
@@ -34,6 +43,13 @@ info:
     - <b>Server-to-server authentication</b>. Use your [secret key](#section/Authentication/ApiSecretKey) or [client credentials](#section/Authentication/OAuth) for server-to-server communication. Support for API keys depends on the endpoint.
 
     Never share your client credentials, API keys, or access tokens. Keep them guarded and secure.
+
+    # Changelog
+
+     | Date          |      Description of change                                        |
+     |---------------|-------------------------------------------------------------------|
+     | 2021/10/18    |  Added the `marketplaces.sub-entities` object to support split payments.  |
+     | 2021/10/12    |  Added Hosted Payments Page and Payment Links to specification.   |
 
 servers:
   - url: https://api.checkout.com
