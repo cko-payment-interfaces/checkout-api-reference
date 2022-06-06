@@ -181,8 +181,10 @@ properties:
   metadata:
     type: object
     title: The Metadata Schema
-    description: Allows you to store additional information about the transaction. This object only allows one level of depth, so cannot accept non-primitive data types such as objects or arrays. You can specify up to 5 keys, with key names up to 100 characters long and values up to 255 characters long.
+    description: Allows you to store additional information about the transaction. This object only allows one level of depth, so cannot accept non-primitive data types such as objects or arrays.
     additionalProperties: true
+    maxItems: 20
+    maxLength: 255
   3ds:
     type: object
     description: Information required for 3D Secure payments.
