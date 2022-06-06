@@ -189,8 +189,9 @@ properties:
   metadata:
     type: object
     title: The Metadata Schema
-    description: Allows you to store additional information about the transaction. This object only allows one level of depth, so cannot accept non-primitive data types such as objects or arrays. You can specify up to 5 keys, with key names up to 100 characters long and values up to 255 characters long.
+    description: Allows you to store additional information about the transaction. This object only allows one level of depth, so cannot accept non-primitive data types such as objects or arrays. 
     additionalProperties: true
+    maxLength: 255
   locale:
     type: string
     description: Creates a translated version of the page in the specified language. For Klarna payments, <a href="https://www.checkout.com/docs/integrate/hosted-payments-page/manage-your-hosted-payments-page#Alternative_payment_methods" target="_blank">read our documentation about expected parameters for certain locales</a>.
