@@ -137,18 +137,36 @@ properties:
     description: >
       Use to specify which <a href="https://www.checkout.com/docs/four/payments/payment-methods" target="_blank">payment methods</a> should render on the page. <a href="https://checkout.com/docs/four/integrate/hosted-payments-page/manage-your-hosted-payments-page#Alternative_payment_methods" target="_blank">Check the requirements for each payment method</a>
     enum:
+      - googlepay
+      - applepay
       - card
-      - sofort
+      - bancontact
+      - eps
       - ideal
       - knet
-      - bancontact
-      - p24
       - multibanco
-      - alipay_hk
-      - alipay_cn
-      - gcash
+      - p24
+      - sofort
     example:
       - card
+  disabled_payment_methods:
+    type: array
+    description: >
+      Use to specify which <a href="https://www.checkout.com/docs/four/payments/payment-methods" target="_blank">payment methods</a> should render on the page. <a href="https://checkout.com/docs/four/integrate/hosted-payments-page/manage-your-hosted-payments-page#Alternative_payment_methods" target="_blank">Check the requirements for each payment method</a>
+    enum:
+      - googlepay
+      - applepay
+      - card
+      - bancontact
+      - eps
+      - ideal
+      - knet
+      - multibanco
+      - p24
+      - sofort
+    example:
+      - card
+
   products:
     type: array
     description: Details about the products in the order
